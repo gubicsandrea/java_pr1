@@ -1,6 +1,6 @@
 package employees;
 
-public class Employee extends Person {
+public class Employee extends Person implements Comparable<Employee>, CanWork {
 
     private double salary;
 
@@ -41,5 +41,15 @@ public class Employee extends Person {
     @Override
     public int hashCode() {
         return (getName().length());
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.getName().compareTo(o.getName());
+    }
+
+    @Override
+    public void work() {
+        System.out.println("I'm working");
     }
 }
